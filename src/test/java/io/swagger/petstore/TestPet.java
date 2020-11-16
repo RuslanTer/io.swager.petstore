@@ -1,6 +1,7 @@
 package io.swagger.petstore;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import org.hamcrest.Matchers;
 import org.junit.Test;
 
 public class TestPet {
@@ -11,16 +12,14 @@ public class TestPet {
                 .basePath("/v2/pet")
                 .contentType(ContentType.JSON)
                 .header("api_key","asdasd1asgvvc")
-                .body("{\n" +
-                        "\"id\": "+0+",\n" +
-                        "\"name\": \"kotik\",\n" +
-                        "\"photoUrls\": [\"string\"],\n" +
-                        "\"tags\": [],\n" +
-                        "\"status\": \"pending\",\n" +
-                        "}")
+                .body("{" +
+                        "\"id\": 12305, " +
+                        "\"name\": \"doggie\"," +
+                        "\"photoUrls\": []," +
+                        "\"tags\": []," +
+                        "\"status\": \"available\"}")
                 .when().post()
                 .then()
-                .extract().response()
-                .prettyPrint();
+                .body("id", Matchers.equalTo(12305));
     }
 }

@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="io.swagger.petstore.TestPet" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-11-16T15:25:06" hostname="DESKTOP-H3TFF7G" time="2.148">
+<testsuite name="io.swagger.petstore.TestPet" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-11-16T17:20:35" hostname="DESKTOP-H3TFF7G" time="2.683">
   <properties/>
-  <testcase name="petTest" classname="io.swagger.petstore.TestPet" time="2.148"/>
-  <system-out><![CDATA[{
-    "code": 400,
-    "type": "unknown",
-    "message": "bad input"
-}
-]]></system-out>
+  <testcase name="petTest" classname="io.swagger.petstore.TestPet" time="2.683"/>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
