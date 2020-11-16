@@ -1,0 +1,2 @@
+io/swagger/petstore/TestPet.java
+ io.swagger.petstore.TestPet
