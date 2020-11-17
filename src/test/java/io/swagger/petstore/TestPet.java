@@ -8,6 +8,7 @@ import org.hamcrest.Matchers;
 import org.junit.Test;
 
 public class TestPet {
+
     @Test
     public void petTest() {
         RestAssured.given()
@@ -29,12 +30,18 @@ public class TestPet {
     @Test
     public void petModelTest() {
         Pet pet1 = new Pet(1, "dog");
+        pet1.photoUrls = new String[] {"asdasdasd"};
+        pet1.pet_status = Pet.status.available;
         RestAssured.given()
                 .header("api_key", "asdasd1asgvvc")
                 .contentType("application/json")
                 .body(pet1)
                 .when()
-                .post("https://petstore.swagger.io/v2/pet");
+                .post("https://petstore.swagger.io/v2/pet")
+                .then()
+                .extract()
+                .response()
+                .prettyPrint();
 
 
         Pet pet2 = new Pet(2, "cat");
