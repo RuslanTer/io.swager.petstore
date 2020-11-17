@@ -1,7 +1,7 @@
 package models;
 
 public class Pet {
-    public int id;
+    public long id;
     public Category category;
     public String name;
     public String[] photoUrls;
