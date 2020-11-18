@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="PetTest.PetGetTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-11-18T11:32:27" hostname="DESKTOP-H3TFF7G" time="1.634">
+  <properties/>
+  <testcase name="TestGetPet" classname="PetTest.PetGetTest" time="1.634"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

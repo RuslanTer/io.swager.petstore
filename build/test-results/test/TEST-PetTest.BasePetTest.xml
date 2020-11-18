@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="PetTest.BasePetTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-11-17T15:57:46" hostname="DESKTOP-H3TFF7G" time="5.32">
-  <properties/>
-  <testcase name="TestGetPet" classname="PetTest.BasePetTest" time="3.181"/>
-  <testcase name="TestCreatePet" classname="PetTest.BasePetTest" time="2.139"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
