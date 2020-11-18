@@ -16,7 +16,7 @@ import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class PetCreateTest {
+public class PetDeleteTest {
     public Pet cat;
     public Pet dog;
     public Pet cat_extended;
@@ -28,10 +28,8 @@ public class PetCreateTest {
         this.cat_extended = new PetExtendFactory().createRandomPet();
     }
 
-
     @Test
-    public void TestCreatePet() {
-
+    public void TestDeletePet(){
         RestAssured.given()
                 .header("api_key", String.valueOf(new Auth().api_key))
                 .contentType("application/json")
@@ -40,33 +38,23 @@ public class PetCreateTest {
                 .post("https://petstore.swagger.io/v2/pet")
                 .then()
                 .assertThat()
-                .body("id", Matchers.equalTo(this.cat.id))
-                .body("name", Matchers.equalTo(this.cat.name));
+                .statusCode(200);
+
 
         RestAssured.given()
                 .header("api_key", String.valueOf(new Auth().api_key))
-                .contentType("application/json")
-                .body(this.dog)
                 .when()
-                .post("https://petstore.swagger.io/v2/pet")
+                .delete("https://petstore.swagger.io/v2/pet/{pet1.id}", this.cat.id)
                 .then()
                 .assertThat()
-                .body("id", Matchers.equalTo(this.dog.id))
-                .body("name", Matchers.equalTo(this.dog.name));
-    }
+                .statusCode(200);
 
-    @Test
-    public void TestCreateExtendedPet() {
-        Pet cat_extended_response = RestAssured.given()
+        RestAssured.given()
                 .header("api_key", String.valueOf(new Auth().api_key))
-                .contentType("application/json")
-                .body(this.cat_extended)
                 .when()
-                .post("https://petstore.swagger.io/v2/pet")
+                .get("https://petstore.swagger.io/v2/pet/{pet1.id}", this.cat.id)
                 .then()
                 .assertThat()
-                .extract()
-                .as(Pet.class);
-        assertThat(cat_extended_response, Matchers.equalTo(cat_extended));
+                .statusCode(404);
     }
 }

@@ -1,22 +1,16 @@
 package PetTest;
-
 import factoryes.PetExtendFactory;
 import factoryes.PetFactory;
 import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
-import io.restassured.mapper.ObjectMapper;
 import models.Auth;
-import models.Category;
 import models.Pet;
-import models.Tag;
 import org.hamcrest.Matchers;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class PetCreateTest {
+public class PetUpdateTest {
     public Pet cat;
     public Pet dog;
     public Pet cat_extended;
@@ -28,10 +22,8 @@ public class PetCreateTest {
         this.cat_extended = new PetExtendFactory().createRandomPet();
     }
 
-
     @Test
-    public void TestCreatePet() {
-
+    public void TestUpdatePet(){
         RestAssured.given()
                 .header("api_key", String.valueOf(new Auth().api_key))
                 .contentType("application/json")
@@ -40,33 +32,22 @@ public class PetCreateTest {
                 .post("https://petstore.swagger.io/v2/pet")
                 .then()
                 .assertThat()
-                .body("id", Matchers.equalTo(this.cat.id))
-                .body("name", Matchers.equalTo(this.cat.name));
+                .statusCode(200);
 
-        RestAssured.given()
+        this.cat = new PetFactory().createRandomPet();
+        Pet cat_result = RestAssured.given()
                 .header("api_key", String.valueOf(new Auth().api_key))
                 .contentType("application/json")
-                .body(this.dog)
+                .body(this.cat)
                 .when()
-                .post("https://petstore.swagger.io/v2/pet")
-                .then()
-                .assertThat()
-                .body("id", Matchers.equalTo(this.dog.id))
-                .body("name", Matchers.equalTo(this.dog.name));
-    }
-
-    @Test
-    public void TestCreateExtendedPet() {
-        Pet cat_extended_response = RestAssured.given()
-                .header("api_key", String.valueOf(new Auth().api_key))
-                .contentType("application/json")
-                .body(this.cat_extended)
-                .when()
-                .post("https://petstore.swagger.io/v2/pet")
+                .put("https://petstore.swagger.io/v2/pet")
                 .then()
                 .assertThat()
                 .extract()
                 .as(Pet.class);
-        assertThat(cat_extended_response, Matchers.equalTo(cat_extended));
+        assertThat(cat_result, Matchers.equalTo(this.cat));
+
+
+
     }
 }
