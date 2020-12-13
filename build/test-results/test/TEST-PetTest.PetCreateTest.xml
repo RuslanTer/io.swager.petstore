@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="PetTest.PetCreateTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-11-18T15:49:25" hostname="DESKTOP-H3TFF7G" time="4.598">
+<testsuite name="PetTest.PetCreateTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-12-13T19:56:53" hostname="DESKTOP-H3TFF7G" time="3.024">
   <properties/>
-  <testcase name="TestCreateExtendedPet" classname="PetTest.PetCreateTest" time="2.58"/>
-  <testcase name="TestCreatePet" classname="PetTest.PetCreateTest" time="2.018"/>
+  <testcase name="TestCreateNotValidPet" classname="PetTest.PetCreateTest" time="0.751"/>
+  <testcase name="TestCreateExtendedPet" classname="PetTest.PetCreateTest" time="0.743"/>
+  <testcase name="TestCreatePet" classname="PetTest.PetCreateTest" time="1.53"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

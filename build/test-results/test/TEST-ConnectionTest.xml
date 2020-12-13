@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ConnectionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-13T19:56:42" hostname="DESKTOP-H3TFF7G" time="2.14">
+  <properties/>
+  <testcase name="TestConnection" classname="ConnectionTest" time="2.14"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -13,6 +13,8 @@ import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import io.qameta.allure.AllureId;
+
 
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -28,7 +30,7 @@ public class PetCreateTest {
         this.cat_extended = new PetExtendFactory().createRandomPet();
     }
 
-
+    @AllureId("991")
     @Test
     public void TestCreatePet() {
 
@@ -68,5 +70,23 @@ public class PetCreateTest {
                 .extract()
                 .as(Pet.class);
         assertThat(cat_extended_response, Matchers.equalTo(cat_extended));
+    }
+
+    @Test
+    public void TestCreateNotValidPet() {
+        RestAssured.given()
+                .header("api_key", String.valueOf(new Auth().api_key))
+                .contentType("application/json")
+                .body("{" +
+                        "\"id\": 'asd', " +
+                        "\"name\": \"doggie\"," +
+                        "\"photoUrls\": []," +
+                        "\"tags\": []," +
+                        "\"status\": \"available\"}")
+                .when()
+                .post("https://petstore.swagger.io/v2/pet")
+                .then()
+                .assertThat()
+                .statusCode(400);
     }
 }

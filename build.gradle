@@ -15,4 +15,6 @@ dependencies {
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.0.1'
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.5'
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.11'
+    compile 'io.qameta.allure:allure-rest-assured:2.13.0'
+    testCompile group: 'io.qameta.allure', name: 'allure-junit4', version: '2.13.7'
 }

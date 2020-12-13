@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="PetTest.PetDeleteTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-11-18T15:49:29" hostname="DESKTOP-H3TFF7G" time="2.383">
+<testsuite name="PetTest.PetDeleteTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-13T19:56:56" hostname="DESKTOP-H3TFF7G" time="2.204">
   <properties/>
-  <testcase name="TestDeletePet" classname="PetTest.PetDeleteTest" time="2.383"/>
+  <testcase name="TestDeletePet" classname="PetTest.PetDeleteTest" time="2.204"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
